@@ -6,7 +6,7 @@ public class Session {
 	}
 
 	public String getAnswer(String string) {
-		// TODO Auto-generated method stub
+		// TODO: создать логику
 		return "Привет";
 	}
 }
