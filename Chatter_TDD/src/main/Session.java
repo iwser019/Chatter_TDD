@@ -5,8 +5,10 @@ public class Session {
 		
 	}
 
-	public String getAnswer(String string) {
+	public String getAnswer(String saying) {
 		// TODO: создать логику
-		return "Привет";
+		if (saying == "Привет")
+			return "Привет";
+		return "Неплохо.";
 	}
 }
