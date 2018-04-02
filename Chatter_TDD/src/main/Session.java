@@ -5,8 +5,8 @@ public class Session {
 		
 	}
 
-	public Object getAnswer(String string) {
+	public String getAnswer(String string) {
 		// TODO Auto-generated method stub
-		return null;
+		return "Привет";
 	}
 }
