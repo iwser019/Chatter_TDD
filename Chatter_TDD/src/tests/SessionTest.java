@@ -1,7 +1,7 @@
 package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import main.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
