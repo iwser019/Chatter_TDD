@@ -14,4 +14,9 @@ class SessionTest {
 		Assertions.assertNotNull(session);
 	}
 
+	@Test
+	void SessionGetAnswerTest() {
+		Session session = new Session();
+		Assertions.assertEquals("Привет", session.getAnswer("Привет"));
+	}
 }
