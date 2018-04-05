@@ -1,6 +1,8 @@
 package main;
 
 public class Session {
+	// TODO: добавить возможность забивания в базу
+	
 	public Session() {
 		
 	}

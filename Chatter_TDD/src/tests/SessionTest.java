@@ -25,4 +25,10 @@ class SessionTest {
 		Session session = new Session();
 		Assertions.assertEquals("Неплохо.", session.getAnswer("Как дела?"));
 	}
+	
+	@Test
+	void SessionNullSayingTest() {
+		Session session = new Session();
+		Assertions.assertEquals("Не понял.", session.getAnswer(null));
+	}
 }
