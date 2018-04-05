@@ -1,7 +1,7 @@
 package main;
 
 public class Session {
-	// TODO: добавить возможность забивания в базу
+	// TODO: перейти к недетерминированному выводу
 	
 	public Session() {
 		
@@ -14,8 +14,12 @@ public class Session {
 	 */
 	public String getAnswer(String saying) {
 		// TODO: создать логику
-		if (saying == "Привет")
+		if (saying == null)
+			return "Не понял.";
+		else if (saying.equals("Привет"))
 			return "Привет";
-		return "Неплохо.";
+		else if (saying.equals("Как дела?"))
+			return "Неплохо.";
+		return "Не понял.";
 	}
 }
