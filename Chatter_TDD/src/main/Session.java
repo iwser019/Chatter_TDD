@@ -25,6 +25,10 @@ public class Session {
 
 	public Boolean hasExactMatch(String string) {
 		// TODO добавить проверки
-		return true;
+		if (string == null)
+			return false;
+		if (string.equals("Ты спишь?"))
+			return true;
+		return false;
 	}
 }
