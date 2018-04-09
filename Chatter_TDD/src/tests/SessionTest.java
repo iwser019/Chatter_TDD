@@ -31,4 +31,10 @@ class SessionTest {
 		Session session = new Session();
 		Assertions.assertEquals("Не понял.", session.getAnswer(null));
 	}
+	
+	@Test
+	void SessionHasExactMatch() {
+		Session session = new Session();
+		Assertions.assertEquals(true, session.hasExactMatch("Ты спишь?"));
+	}
 }

@@ -22,4 +22,9 @@ public class Session {
 			return "Неплохо.";
 		return "Не понял.";
 	}
+
+	public Boolean hasExactMatch(String string) {
+		// TODO добавить проверки
+		return true;
+	}
 }
