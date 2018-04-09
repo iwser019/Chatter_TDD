@@ -33,8 +33,20 @@ class SessionTest {
 	}
 	
 	@Test
-	void SessionHasExactMatch() {
+	void SessionHasExactMatchTest() {
 		Session session = new Session();
 		Assertions.assertEquals(true, session.hasExactMatch("Ты спишь?"));
+	}
+	
+	@Test
+	void SessionHasNoExactMatchTest() {
+		Session session = new Session();
+		Assertions.assertEquals(false, session.hasExactMatch("фывапролджэ"));
+	}
+	
+	@Test
+	void SessionHasNoExactMatchForNullTest() {
+		Session session = new Session();
+		Assertions.assertEquals(false, session.hasExactMatch(null));
 	}
 }
