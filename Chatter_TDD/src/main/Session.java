@@ -22,7 +22,12 @@ public class Session {
 			return "Неплохо.";
 		return "Не понял.";
 	}
-
+	
+	/**
+	 * Проверка на то, имеется ли в базе точное соответствие строке
+	 * @param Исходная строка
+	 * @return Результат проверки
+	 */
 	public Boolean hasExactMatch(String string) {
 		// TODO добавить проверки
 		if (string == null)

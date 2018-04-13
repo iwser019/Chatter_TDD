@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import main.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import java.util.Map;
+import java.util.HashMap;
 
 
 class SessionTest {
@@ -48,5 +50,15 @@ class SessionTest {
 	void SessionHasNoExactMatchForNullTest() {
 		Session session = new Session();
 		Assertions.assertEquals(false, session.hasExactMatch(null));
+	}
+	
+	@Test
+	void SessionExactMatchBaseTest() {
+		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
+		Assertions.assertEquals(true, session.hasExactMatch("Сколько будет два плюс два?"));
 	}
 }
