@@ -60,4 +60,9 @@ public class Session {
 		matchBase.put("Сколько будет два плюс два?", "Четыре.");
 		return matchBase;
 	}
+
+	public Boolean hasTypicalMatch(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
