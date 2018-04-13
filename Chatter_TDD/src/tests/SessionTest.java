@@ -91,4 +91,17 @@ class SessionTest {
 		Session session = new Session();
 		Assertions.assertEquals(false, session.hasTypicalMatch(null));
 	}
+	
+	@Test
+	void SessionTypicalMatchBaseTest() {
+		Session session = new Session();
+		Map<String, String[]> matchBase = new HashMap<String, String[]>();
+		matchBase.put("Не знаю.", new String[] {
+				"Я тоже не знаю.",
+				"А почему?",
+				"Жаль."
+		});
+		session.setTypicalMatchBase(matchBase);
+		Assertions.assertEquals(matchBase, session.getTypicalMatchBase());
+	}
 }
