@@ -47,18 +47,30 @@ class SessionTest {
 	@Test
 	void SessionHasExactMatchTest() {
 		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
 		Assertions.assertEquals(true, session.hasExactMatch("Ты спишь?"));
 	}
 	
 	@Test
 	void SessionHasNoExactMatchTest() {
 		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
 		Assertions.assertEquals(false, session.hasExactMatch("фывапролджэ"));
 	}
 	
 	@Test
 	void SessionHasNoExactMatchForNullTest() {
 		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
 		Assertions.assertEquals(false, session.hasExactMatch(null));
 	}
 	
@@ -78,12 +90,26 @@ class SessionTest {
 	@Test
 	void SessionHasTypicalMatchTest() {
 		Session session = new Session();
+		Map<String, String[]> matchBase = new HashMap<String, String[]>();
+		matchBase.put("Не знаю.", new String[] {
+				"Я тоже не знаю.",
+				"А почему?",
+				"Жаль."
+		});
+		session.setTypicalMatchBase(matchBase);
 		Assertions.assertEquals(true, session.hasTypicalMatch("Не знаю."));
 	}
 	
 	@Test
 	void SessionHasNoTypicalMatchTest() {
 		Session session = new Session();
+		Map<String, String[]> matchBase = new HashMap<String, String[]>();
+		matchBase.put("Не знаю.", new String[] {
+				"Я тоже не знаю.",
+				"А почему?",
+				"Жаль."
+		});
+		session.setTypicalMatchBase(matchBase);
 		Assertions.assertEquals(false, session.hasTypicalMatch("фывапролджэ"));
 	}
 	

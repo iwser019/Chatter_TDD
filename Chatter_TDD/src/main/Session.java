@@ -35,12 +35,9 @@ public class Session {
 	 * @return Результат проверки
 	 */
 	public Boolean hasExactMatch(String string) {
-		// TODO добавить проверки
 		if (string == null)
 			return false;
-		if (string.equals("Ты спишь?"))
-			return true;
-		return false;
+		return exactMatchBase.containsKey(string);
 	}
 	
 	/**
@@ -65,12 +62,9 @@ public class Session {
 	 * @return Результат проверки
 	 */
 	public Boolean hasTypicalMatch(String string) {
-		// TODO Добавить логику
 		if (string == null)
 			return false;
-		if (string == "Не знаю.")
-			return true;
-		return false;
+		return typicalMatchBase.containsKey(string);
 	}
 
 	/**
