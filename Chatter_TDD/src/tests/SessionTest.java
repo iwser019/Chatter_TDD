@@ -5,6 +5,7 @@ import main.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
+import java.util.Arrays;
 import java.util.HashMap;
 
 
@@ -111,7 +112,9 @@ class SessionTest {
 		}
 		Assertions.assertEquals(true, hasSameKeys);
 		for (String str : matchBaseAlt.keySet()) {
-			if (matchBase.get(str).equals(matchBaseAlt.get(str)))
+			String[] values = (String[])matchBase.get(str);
+			String[] valuesAlt = (String[])matchBaseAlt.get(str);
+			if (!Arrays.equals(values, valuesAlt))
 				hasSameValues = hasSameValues && false;
 		}
 		Assertions.assertEquals(true, hasSameValues);
