@@ -5,9 +5,12 @@ import java.util.Map;
 
 public class Session {
 	// TODO: перейти к недетерминированному выводу
+	private Map<String, String> exactMatchBase;
+	private Map<String, String[]> typicalMatchBase;
 	
 	public Session() {
-		
+		exactMatchBase = new HashMap<String, String>();
+		typicalMatchBase = new HashMap<String, String[]>();
 	}
 
 	/**
@@ -45,8 +48,7 @@ public class Session {
 	 * @param matchBase Словарь соответствий реплик (запрос - ответ)
 	 */
 	public void setExactMatchBase(Map<String, String> matchBase) {
-		// TODO Добавить внесение заглушки
-		
+		exactMatchBase = matchBase;
 	}
 	
 	/**
@@ -54,11 +56,7 @@ public class Session {
 	 * @return Словарь соответствий реплик (запрос - ответ)
 	 */
 	public Map<String, String> getExactMatchBase() {
-		// TODO Добавить действительное получение
-		Map<String, String> matchBase = new HashMap<String, String>();
-		matchBase.put("Ты спишь?", "Нет");
-		matchBase.put("Сколько будет два плюс два?", "Четыре.");
-		return matchBase;
+		return exactMatchBase;
 	}
 	
 	/**
@@ -80,8 +78,7 @@ public class Session {
 	 * @param matchBase Словарь типичных реплик (запрос - набор ответов)
 	 */
 	public void setTypicalMatchBase(Map<String, String[]> matchBase) {
-		// TODO Добавить логику
-		
+		typicalMatchBase = matchBase;
 	}
 
 	/**
@@ -89,13 +86,6 @@ public class Session {
 	 * @return Словарь типичных реплик (запрос - набор ответов)
 	 */
 	public Map<String, String[]> getTypicalMatchBase() {
-		// TODO Auto-generated method stub
-		Map<String, String[]> matchBase = new HashMap<String, String[]>();
-		matchBase.put("Не знаю.", new String[] {
-				"Я тоже не знаю.",
-				"А почему?",
-				"Жаль."
-		});
-		return matchBase;
+		return typicalMatchBase;
 	}
 }
