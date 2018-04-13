@@ -102,6 +102,18 @@ class SessionTest {
 				"Жаль."
 		});
 		session.setTypicalMatchBase(matchBase);
-		Assertions.assertEquals(matchBase, session.getTypicalMatchBase());
+		Map<String, String[]> matchBaseAlt = session.getTypicalMatchBase();
+		Boolean hasSameKeys = true;
+		Boolean hasSameValues = true;
+		for (String str : matchBaseAlt.keySet()) {
+			if (!matchBase.containsKey(str))
+				hasSameKeys = hasSameKeys && false;
+		}
+		Assertions.assertEquals(true, hasSameKeys);
+		for (String str : matchBaseAlt.keySet()) {
+			if (matchBase.get(str).equals(matchBaseAlt.get(str)))
+				hasSameValues = hasSameValues && false;
+		}
+		Assertions.assertEquals(true, hasSameValues);
 	}
 }

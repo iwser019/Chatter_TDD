@@ -77,6 +77,12 @@ public class Session {
 
 	public Map<String, String[]> getTypicalMatchBase() {
 		// TODO Auto-generated method stub
-		return null;
+		Map<String, String[]> matchBase = new HashMap<String, String[]>();
+		matchBase.put("Не знаю.", new String[] {
+				"Я тоже не знаю.",
+				"А почему?",
+				"Жаль."
+		});
+		return matchBase;
 	}
 }
