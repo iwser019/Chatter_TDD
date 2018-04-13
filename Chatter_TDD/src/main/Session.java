@@ -69,4 +69,14 @@ public class Session {
 			return true;
 		return false;
 	}
+
+	public void setTypicalMatchBase(Map<String, String[]> matchBase) {
+		// TODO Добавить логику
+		
+	}
+
+	public Map<String, String[]> getTypicalMatchBase() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
