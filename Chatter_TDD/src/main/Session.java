@@ -60,7 +60,12 @@ public class Session {
 		matchBase.put("Сколько будет два плюс два?", "Четыре.");
 		return matchBase;
 	}
-
+	
+	/**
+	 * Проверка на то, имеется ли в базе соответствие для типичной реплики
+	 * @param string Исходная строка
+	 * @return Результат проверки
+	 */
 	public Boolean hasTypicalMatch(String string) {
 		// TODO Добавить логику
 		if (string == null)
@@ -70,11 +75,19 @@ public class Session {
 		return false;
 	}
 
+	/**
+	 * Установка базы типичных реплик
+	 * @param matchBase Словарь типичных реплик (запрос - набор ответов)
+	 */
 	public void setTypicalMatchBase(Map<String, String[]> matchBase) {
 		// TODO Добавить логику
 		
 	}
 
+	/**
+	 * Получение установленной базы типичных реплик
+	 * @return Словарь типичных реплик (запрос - набор ответов)
+	 */
 	public Map<String, String[]> getTypicalMatchBase() {
 		// TODO Auto-generated method stub
 		Map<String, String[]> matchBase = new HashMap<String, String[]>();
