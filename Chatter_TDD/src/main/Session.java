@@ -1,5 +1,6 @@
 package main;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Session {
@@ -46,6 +47,9 @@ public class Session {
 
 	public Map<String, String> getExactMatchBase() {
 		// TODO Добавить действительное получение
-		return null;
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		return matchBase;
 	}
 }
