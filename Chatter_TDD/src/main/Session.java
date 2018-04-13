@@ -62,7 +62,11 @@ public class Session {
 	}
 
 	public Boolean hasTypicalMatch(String string) {
-		// TODO Auto-generated method stub
-		return null;
+		// TODO Добавить логику
+		if (string == null)
+			return false;
+		if (string == "Не знаю.")
+			return true;
+		return false;
 	}
 }
