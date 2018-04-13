@@ -10,12 +10,18 @@ import java.util.HashMap;
 
 class SessionTest {
 
+	/**
+	 * Создание объекта сеанса
+	 */
 	@Test
 	void SessionNotNullTest() {
 		Session session = new Session();
 		Assertions.assertNotNull(session);
 	}
 
+	/**
+	 * Тесты на получение ответа
+	 */
 	@Test
 	void SessionGetAnswerTest() {
 		Session session = new Session();
@@ -63,5 +69,26 @@ class SessionTest {
 		matchBase.put("Сколько будет два плюс два?", "Четыре.");
 		session.setExactMatchBase(matchBase);
 		Assertions.assertEquals(matchBase, session.getExactMatchBase());
+	}
+	
+	/**
+	 * Тесты для работы с базой типичных реплик
+	 */
+	@Test
+	void SessionHasTypicalMatchTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, session.hasTypicalMatch("Не знаю."));
+	}
+	
+	@Test
+	void SessionHasNoTypicalMatchTest() {
+		Session session = new Session();
+		Assertions.assertEquals(false, session.hasTypicalMatch("фывапролджэ"));
+	}
+	
+	@Test
+	void SessionHasNoTypicalMatchForNull() {
+		Session session = new Session();
+		Assertions.assertEquals(false, session.hasTypicalMatch(null));
 	}
 }
