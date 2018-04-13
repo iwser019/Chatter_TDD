@@ -43,4 +43,9 @@ public class Session {
 		// TODO Добавить внесение заглушки
 		
 	}
+
+	public Map<String, String> getExactMatchBase() {
+		// TODO Добавить действительное получение
+		return null;
+	}
 }
