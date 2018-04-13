@@ -59,6 +59,6 @@ class SessionTest {
 		matchBase.put("Ты спишь?", "Нет");
 		matchBase.put("Сколько будет два плюс два?", "Четыре.");
 		session.setExactMatchBase(matchBase);
-		Assertions.assertEquals(true, session.hasExactMatch("Сколько будет два плюс два?"));
+		Assertions.assertEquals(matchBase, session.getExactMatchBase());
 	}
 }

@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Map;
+
 public class Session {
 	// TODO: перейти к недетерминированному выводу
 	
@@ -35,5 +37,10 @@ public class Session {
 		if (string.equals("Ты спишь?"))
 			return true;
 		return false;
+	}
+
+	public void setExactMatchBase(Map<String, String> matchBase) {
+		// TODO Добавить внесение заглушки
+		
 	}
 }
