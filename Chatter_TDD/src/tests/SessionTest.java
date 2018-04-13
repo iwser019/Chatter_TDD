@@ -34,6 +34,9 @@ class SessionTest {
 		Assertions.assertEquals("Не понял.", session.getAnswer(null));
 	}
 	
+	/**
+	 * Тесты для работы с базой точных соответствий
+	 */
 	@Test
 	void SessionHasExactMatchTest() {
 		Session session = new Session();

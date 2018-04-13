@@ -39,12 +39,20 @@ public class Session {
 			return true;
 		return false;
 	}
-
+	
+	/**
+	 * Установка базы точных соответствий реплик
+	 * @param matchBase Словарь соответствий реплик (запрос - ответ)
+	 */
 	public void setExactMatchBase(Map<String, String> matchBase) {
 		// TODO Добавить внесение заглушки
 		
 	}
-
+	
+	/**
+	 * Получение установленной базы точных соответствий реплик
+	 * @return Словарь соответствий реплик (запрос - ответ)
+	 */
 	public Map<String, String> getExactMatchBase() {
 		// TODO Добавить действительное получение
 		Map<String, String> matchBase = new HashMap<String, String>();
