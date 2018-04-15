@@ -201,7 +201,7 @@ class SessionTest {
 		matchBase.put("Ты спишь?", "Нет");
 		matchBase.put("Сколько будет два плюс два?", "Четыре.");
 		session.setExactMatchBase(matchBase);
-		Assertions.assertEquals(true, session.hasExactMatchSub("фывапролджэ"));
+		Assertions.assertEquals(false, session.hasExactMatchSub("фывапролджэ"));
 	}
 	
 	@Test
@@ -211,6 +211,6 @@ class SessionTest {
 		matchBase.put("Ты спишь?", "Нет");
 		matchBase.put("Сколько будет два плюс два?", "Четыре.");
 		session.setExactMatchBase(matchBase);
-		Assertions.assertEquals(true, session.hasExactMatchSub(null));
+		Assertions.assertEquals(false, session.hasExactMatchSub(null));
 	}
 }
