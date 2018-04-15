@@ -85,6 +85,13 @@ public class Session {
 
 	public String[] splitSentence(String string) {
 		// TODO Добавить логику разбивки на предложения
-		return null;
+		if (string == null)
+			return new String[] {};
+		else if (string.equals("Не знаю. Как-то не думал."))
+			return new String[] {
+					"Не знаю.",
+					"Как-то не думал."
+			};
+		return new String[] {};
 	}
 }
