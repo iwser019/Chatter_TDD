@@ -14,5 +14,17 @@ class PairTest {
 		Pair<Object, Object> pair = new Pair<>(null, null);
 		Assertions.assertNotNull(pair);
 	}
+	
+	@Test
+	void PairHasXValue() {
+		Pair<Integer, Integer> pair = new Pair(1, 2);
+		Assertions.assertEquals(1, pair.getX());
+	}
+	
+	@Test
+	void PairHasYValue() {
+		Pair<Integer, Integer> pair = new Pair(1, 2);
+		Assertions.assertEquals(2, pair.getY());
+	}
 
 }
