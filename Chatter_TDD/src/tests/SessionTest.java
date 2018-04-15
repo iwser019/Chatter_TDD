@@ -155,6 +155,14 @@ class SessionTest {
 	}
 	
 	@Test
+	void SessionSentenceSplitSingleTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, Arrays.equals(new String[] {
+				"фывапролджэ?"
+		}, session.splitSentence("фывапролджэ?")));
+	}
+	
+	@Test
 	void SessionSentenceSplitNullTest() {
 		Session session = new Session();
 		Assertions.assertEquals(true, Arrays.equals(new String[] {}, session.splitSentence(null)));
