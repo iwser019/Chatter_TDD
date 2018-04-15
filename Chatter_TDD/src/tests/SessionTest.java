@@ -331,4 +331,19 @@ class SessionTest {
 		Assertions.assertEquals(false, session.hasKeywordMatch(null));
 	}
 	
+	/**
+	 * Работа с базой общих реплик
+	 */
+	@Test
+	void SessionGenericBaseTest() {
+		Session session = new Session();
+		String[] genBase = new String[] {
+				"Ты вообще о чем?",
+				"И такое бывает...", 
+				"Ясно, понятно."
+		};
+		session.setGenericBase(genBase);
+		Assertions.assertEquals(true, Arrays.equals(genBase, session.getGenericBase()));
+	}
+	
 }
