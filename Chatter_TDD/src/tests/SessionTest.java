@@ -303,4 +303,32 @@ class SessionTest {
 		Assertions.assertEquals(true, session.hasKeywordMatch("Я этого не знаю."));
 	}
 	
+	@Test
+	void SessionHasNoKeywordMatchTest() {
+		Session session = new Session();
+		ArrayList<Pair<String[], String>> keywordBase = new ArrayList<Pair<String[], String>>();
+		keywordBase.add(
+				new Pair<>(
+						new String[] {
+								"не", "знаю."
+						}, "А что ты вообще знаешь?")
+				);
+		session.setKeywordBase(keywordBase);
+		Assertions.assertEquals(false, session.hasKeywordMatch("А вот я знаю."));
+	}
+	
+	@Test
+	void SessionNullKeywordMatchTest() {
+		Session session = new Session();
+		ArrayList<Pair<String[], String>> keywordBase = new ArrayList<Pair<String[], String>>();
+		keywordBase.add(
+				new Pair<>(
+						new String[] {
+								"не", "знаю."
+						}, "А что ты вообще знаешь?")
+				);
+		session.setKeywordBase(keywordBase);
+		Assertions.assertEquals(false, session.hasKeywordMatch(null));
+	}
+	
 }
