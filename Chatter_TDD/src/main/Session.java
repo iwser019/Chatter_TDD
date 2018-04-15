@@ -1,5 +1,6 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -83,19 +84,59 @@ public class Session {
 		return typicalMatchBase;
 	}
 
+	/**
+	 * Разбивка текста реплики на предложения
+	 * @param string Полный текст реплики
+	 * @return Массив отдельных предложений
+	 */
 	public String[] splitSentence(String string) {
 		// TODO Добавить логику разбивки на предложения
 		if (string == null)
 			return new String[] {};
-		else if (string.equals("Не знаю. Как-то не думал."))
-			return new String[] {
-					"Не знаю.",
-					"Как-то не думал."
-			};
-		else if (string.equals("фывапролджэ?"))
-			return new String[] {
-					"фывапролджэ?"
-			};
-		return new String[] {};
+		// если строка - не нулевая
+		ArrayList<String> result = new ArrayList<>();
+		int size = string.length();
+		int ptr = 0;
+		int ptrStart = 0;
+		char currChar = 0;
+		Boolean atEnd = false;
+		Boolean finalized = false;
+		while (!atEnd) {
+			if (ptr >= size) {
+				atEnd = true;
+				break;
+			}
+			currChar = string.charAt(ptr);
+			if (currChar == '.' 
+					|| currChar == '?' 
+					|| currChar == '!') {
+				if ((ptr + 1) < size) {
+					if (string.charAt(ptr + 1) == ' ') {
+						result.add(string.substring(ptrStart, ptr + 1));
+						if ((ptr + 2 < size)) {
+							ptrStart = ptr + 2;
+							ptr = ptr + 2;
+						}
+						else {
+							finalized = true;
+							atEnd = true;
+						}
+					}
+				}
+				else {
+					result.add(string.substring(ptrStart, ptr + 1));
+					finalized = true;
+					atEnd = true;
+				}
+			}
+			else {
+				ptr++;
+			}
+		}
+		if (atEnd && !finalized)
+			result.add(string.substring(ptrStart, ptr + 1));
+		String[] resultArr = new String[result.size()];
+		resultArr = result.toArray(resultArr);
+		return resultArr;
 	}
 }
