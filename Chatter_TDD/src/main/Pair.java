@@ -1,15 +1,37 @@
 package main;
 
+/**
+ * Класс объекта пары.
+ * Представляет собой пару из двух элементов разных типов
+ * @param <X> Тип первого элемента
+ * @param <Y> Тип второго элемента
+ */
 public class Pair<X, Y> {
+	private X x;
+	private Y y;
+	/**
+	 * Конструктор объекта пары
+	 * @param item1 Первый элемент
+	 * @param item2 Второй элемент
+	 */
 	public Pair(X item1, Y item2) {
-		// TODO доделать логику класса
+		this.x = item1;
+		this.y = item2;
 	}
-	public int getX() {
+	/**
+	 * Получение первого элемента
+	 * @return Первый элемент
+	 */
+	public X getX() {
 		// TODO добавить возврат значения
-		return 1;
+		return this.x;
 	}
-	public int getY() {
+	/**
+	 * Получение второго элемента
+	 * @return Второй элемент
+	 */
+	public Y getY() {
 		//TODO добавить возврат значения
-		return 2;
+		return this.y;
 	}
 }
