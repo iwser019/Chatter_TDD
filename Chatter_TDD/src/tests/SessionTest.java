@@ -240,6 +240,6 @@ class SessionTest {
 	@Test
 	void SessionWordSplitNullTest() {
 		Session session = new Session();
-		Assertions.assertEquals(true, Arrays.equals(new String[] {}, null));
+		Assertions.assertEquals(true, Arrays.equals(new String[] {}, session.splitWords(null)));
 	}
 }
