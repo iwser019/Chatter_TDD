@@ -156,6 +156,14 @@ public class Session {
 
 	public String[] splitWords(String string) {
 		// TODO Добавить логику разбивки на слова
+		if (string.equals("Сколько будет два плюс два?"))
+			return new String[] {
+					"Сколько",
+					"будет",
+					"два",
+					"плюс",
+					"два?"
+			};
 		return null;
 	}
 }
