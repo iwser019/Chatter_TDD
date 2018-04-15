@@ -242,4 +242,8 @@ class SessionTest {
 		Session session = new Session();
 		Assertions.assertEquals(true, Arrays.equals(new String[] {}, session.splitWords(null)));
 	}
+	
+	
+	
+	
 }
