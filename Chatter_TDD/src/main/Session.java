@@ -153,4 +153,9 @@ public class Session {
 			return true;
 		return false;
 	}
+
+	public String[] splitWords(String string) {
+		// TODO Добавить логику разбивки на слова
+		return null;
+	}
 }
