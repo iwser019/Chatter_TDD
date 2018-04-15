@@ -286,4 +286,21 @@ class SessionTest {
 		Assertions.assertEquals(true, isOK);
 	}
 	
+	/**
+	 * Тесты для функции поиска соответствий по ключевым словам
+	 */
+	@Test
+	void SessionHasKeywordMatchTest() {
+		Session session = new Session();
+		ArrayList<Pair<String[], String>> keywordBase = new ArrayList<Pair<String[], String>>();
+		keywordBase.add(
+				new Pair<>(
+						new String[] {
+								"не", "знаю."
+						}, "А что ты вообще знаешь?")
+				);
+		session.setKeywordBase(keywordBase);
+		Assertions.assertEquals(true, session.hasKeywordMatch("Я этого не знаю."));
+	}
+	
 }
