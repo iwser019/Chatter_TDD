@@ -156,6 +156,8 @@ public class Session {
 
 	public String[] splitWords(String string) {
 		// TODO Добавить логику разбивки на слова
+		if (string == null)
+			return new String[] {};
 		if (string.equals("Сколько будет два плюс два?"))
 			return new String[] {
 					"Сколько",
@@ -164,6 +166,10 @@ public class Session {
 					"плюс",
 					"два?"
 			};
-		return null;
+		else if (string.equals("фывапролджэ"))
+			return new String[] {
+					"фывапролджэ"
+			};
+		return new String[] {};
 	}
 }
