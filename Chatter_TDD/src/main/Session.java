@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class Session {
 	// TODO: перейти к недетерминированному выводу
@@ -10,12 +11,14 @@ public class Session {
 	private Map<String, String[]> typicalMatchBase;
 	private ArrayList<Pair<String[], String>> keywordBase;
 	private String[] genericBase;
+	private Random randomizer;
 	
 	public Session() {
 		exactMatchBase = new HashMap<String, String>();
 		typicalMatchBase = new HashMap<String, String[]>();
 		keywordBase = new ArrayList<Pair<String[], String>>();
 		genericBase = new String[] {};
+		randomizer = new Random();
 	}
 
 	/**
@@ -25,13 +28,74 @@ public class Session {
 	 */
 	public String getAnswer(String saying) {
 		// TODO: создать логику
+		String answer = "";
 		if (saying == null)
 			return "Не понял.";
-		else if (saying.equals("Привет"))
-			return "Привет";
-		else if (saying.equals("Как дела?"))
-			return "Неплохо.";
-		return "Не понял.";
+		else {
+			if (hasExactMatch(saying)) {
+				answer = exactMatchBase.get(saying);
+			}
+			else {
+				if (hasTypicalMatch(saying)) {
+					String[] answers = typicalMatchBase.get(saying);
+					answer = answers[randomizer.nextInt(answers.length)];
+				}
+				else {
+					if (hasExactMatchSub(saying)) {
+						ArrayList<String> answers = new ArrayList<>();
+						String[] exactSrc = new String[exactMatchBase.keySet().size()];
+						exactSrc = exactMatchBase.keySet().toArray(exactSrc);
+						String[] srcWords = splitWords(saying);
+						for (String exactStr : exactSrc) {
+							int wordCounter = 0;
+							String[] exactWords = splitWords(exactStr);
+							for (String srcWord : srcWords) {
+								for (String exactWord : exactWords) {
+									if (srcWord.equals(exactWord))
+										wordCounter++;
+								}
+							}
+							if (wordCounter >= 2) {
+								answers.add(exactStr);
+							}
+						}
+						answer = answers.get(randomizer.nextInt(answers.size()));
+					}
+					else {
+						if (hasKeywordMatch(saying)) {
+							ArrayList<String> answers = new ArrayList<>();
+							String[] srcWords = splitWords(saying.toLowerCase());
+							for (Pair<String[], String> pair : keywordBase) {
+								String[] keywords = pair.getX();
+								int size = keywords.length;
+								int counter = 0;
+								for (String keyword : keywords) {
+									Boolean ok = false;
+									for (String word : srcWords) {
+										if (word.equals(keyword))
+											ok = ok || true;
+									}
+									if (ok)
+										counter++;
+								}
+								if (counter == size) {
+									answers.add(pair.getY());
+								}
+							}
+							answer = answers.get(randomizer.nextInt(answers.size()));
+						}
+						else {
+							if (genericBase.length > 0) {
+								answer = genericBase[randomizer.nextInt(genericBase.length)];
+							}
+							else
+								answer = "Не понял.";
+						}
+					}
+				}
+			}
+		}
+		return answer;
 	}
 	
 	/**
@@ -94,7 +158,6 @@ public class Session {
 	 * @return Массив отдельных предложений
 	 */
 	public String[] splitSentence(String string) {
-		// TODO Добавить логику разбивки на предложения
 		if (string == null)
 			return new String[] {};
 		// если строка - не нулевая
@@ -150,7 +213,6 @@ public class Session {
 	 * @return Результат проверки
 	 */
 	public Boolean hasExactMatchSub(String string) {
-		// TODO Добавить логику поиска точных соответствий для слов подстроки
 		if (string == null)
 			return false;
 		Boolean result = false;
@@ -207,7 +269,6 @@ public class Session {
 	 * @return Результат проверки
 	 */
 	public Boolean hasKeywordMatch(String string) {
-		// TODO Добавить логику
 		if (string == null)
 			return false;
 		Boolean result = false;
