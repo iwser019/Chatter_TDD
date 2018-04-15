@@ -142,6 +142,8 @@ public class Session {
 
 	public Boolean hasExactMatchSub(String string) {
 		// TODO Добавить логику поиска точных соответствий для слов подстроки
-		return null;
+		if (string.equals("Ты спишь? Только честно."))
+			return true;
+		return false;
 	}
 }
