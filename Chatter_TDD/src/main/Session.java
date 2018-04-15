@@ -8,6 +8,7 @@ public class Session {
 	// TODO: перейти к недетерминированному выводу
 	private Map<String, String> exactMatchBase;
 	private Map<String, String[]> typicalMatchBase;
+	private ArrayList<Pair<String[], String>> keywordBase;
 	
 	public Session() {
 		exactMatchBase = new HashMap<String, String>();
@@ -181,22 +182,19 @@ public class Session {
 		return string.split(" ");
 	}
 
+	/**
+	 * Установка базы ключевых слов
+	 * @param keywordBase Массив пар из набора ключевых слов и соответствующего ответа
+	 */
 	public void setKeywordBase(ArrayList<Pair<String[], String>> keywordBase) {
-		// TODO Добавить установку базы ключевых слов
-		
+		this.keywordBase = keywordBase;
 	}
 
+	/**
+	 * Получение базы ключевых слов
+	 * @return Массив пар из набора ключевых слов и соответствующего ответа
+	 */
 	public ArrayList<Pair<String[], String>> getKeywordBase() {
-		// TODO Добавить получение базы ключевых слов
-		ArrayList<Pair<String[], String>> kwBase = new ArrayList<Pair<String[], String>>();
-		kwBase.add(
-				new Pair<>(
-						new String[] {
-								"блин,"
-								}, 
-						"Я тоже люблю блины."
-						)
-				);
-		return kwBase;
+		return keywordBase;
 	}
 }
