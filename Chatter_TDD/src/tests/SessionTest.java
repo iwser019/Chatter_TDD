@@ -145,4 +145,18 @@ class SessionTest {
 		}
 		Assertions.assertEquals(true, hasSameValues);
 	}
+	
+	@Test
+	void SessionSentenceSplitTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, Arrays.equals(new String[] {
+			"Не знаю.", "Как-то не думал."
+		}, session.splitSentence("Не знаю. Как-то не думал.")));
+	}
+	
+	@Test
+	void SessionSentenceSplitNullTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, Arrays.equals(new String[] {}, session.splitSentence(null)));
+	}
 }
