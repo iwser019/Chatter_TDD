@@ -5,8 +5,10 @@ import main.Session;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import main.Pair;
 
 
 class SessionTest {
@@ -243,7 +245,45 @@ class SessionTest {
 		Assertions.assertEquals(true, Arrays.equals(new String[] {}, session.splitWords(null)));
 	}
 	
+	/**
+	 * Тесты для работы с базой ключевых слов
+	 */
 	
-	
+	@Test
+	void SessionKeywordBaseTest() {
+		Session session = new Session();
+		ArrayList<Pair<String[], String>> keywordBase = new ArrayList<Pair<String[], String>>();
+		keywordBase.add(
+				new Pair<>(
+						new String[] {
+								"блин,"
+								}, 
+						"Я тоже люблю блины."
+						)
+				);
+		session.setKeywordBase(keywordBase);
+		ArrayList<Pair<String[], String>> keywordAlt = session.getKeywordBase();
+		// структуры должны быть в точности равны
+		boolean isOK = true;
+		if (keywordAlt.size() != keywordBase.size()) {
+			isOK = false;
+		}
+		else {
+			int size = keywordBase.size();
+			for (int i = 0; i < size; i++) {
+				Pair<String[], String> pairSrc = keywordBase.get(i), 
+						pairDest = keywordAlt.get(i);
+				if (!pairSrc.getY().equals(pairSrc.getY())) {
+					isOK = false;
+					break;
+				}
+				String[] kwSrc = pairSrc.getX(), kwDest = pairDest.getX();
+				isOK = isOK && Arrays.equals(kwSrc, kwDest);
+				if (!isOK)
+					break;
+			}
+		}
+		Assertions.assertEquals(true, isOK);
+	}
 	
 }
