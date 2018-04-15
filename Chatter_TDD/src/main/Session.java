@@ -149,9 +149,25 @@ public class Session {
 		// TODO Добавить логику поиска точных соответствий для слов подстроки
 		if (string == null)
 			return false;
-		if (string.equals("Ты спишь? Только честно."))
-			return true;
-		return false;
+		Boolean result = false;
+		String[] exactSrc = new String[exactMatchBase.keySet().size()];
+		exactSrc = exactMatchBase.keySet().toArray(exactSrc);
+		String[] srcWords = splitWords(string);
+		for (String exactStr : exactSrc) {
+			int wordCounter = 0;
+			String[] exactWords = splitWords(exactStr);
+			for (String srcWord : srcWords) {
+				for (String exactWord : exactWords) {
+					if (srcWord.equals(exactWord))
+						wordCounter++;
+				}
+			}
+			if (wordCounter >= 2) {
+				result = result || true;
+				break;
+			}
+		}
+		return result;
 	}
 
 	/**
