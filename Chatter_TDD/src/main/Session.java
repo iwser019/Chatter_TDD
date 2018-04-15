@@ -92,6 +92,10 @@ public class Session {
 					"Не знаю.",
 					"Как-то не думал."
 			};
+		else if (string.equals("фывапролджэ?"))
+			return new String[] {
+					"фывапролджэ?"
+			};
 		return new String[] {};
 	}
 }
