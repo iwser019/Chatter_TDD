@@ -197,4 +197,11 @@ public class Session {
 	public ArrayList<Pair<String[], String>> getKeywordBase() {
 		return keywordBase;
 	}
+
+	public Boolean hasKeywordMatch(String string) {
+		// TODO Добавить логику
+		if (string.equals("Я этого не знаю."))
+			return true;
+		return null;
+	}
 }
