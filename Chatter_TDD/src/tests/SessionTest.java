@@ -28,12 +28,34 @@ class SessionTest {
 	@Test
 	void SessionGetAnswerTest() {
 		Session session = new Session();
-		Assertions.assertEquals("Привет", session.getAnswer("Привет"));
+		Map<String, String[]> typicalBase = new HashMap<String, String[]>();
+		typicalBase.put("Привет", new String[] {
+				"Привет",
+				"Здовово",
+				"Здравствуй"
+		});
+		Boolean ok = false;
+		String[] answers = new String[] {
+				"Привет",
+				"Здовово",
+				"Здравствуй"
+		};
+		String answer = session.getAnswer("Привет");
+		for (String srcAnswer : answers) {
+			if (answer.equals(srcAnswer)) {
+				ok = ok || true;
+			}
+		}
+		Assertions.assertEquals(true, ok);
 	}
 	
 	@Test
 	void SessionGetAnswerToQuestionTest() {
 		Session session = new Session();
+		Map<String, String> exactMatch = new HashMap<String, String>();
+		exactMatch.put("Как дела?", "Неплохо.");
+		exactMatch.put("Как поживаешь?", "Средне.");
+		session.setExactMatchBase(exactMatch);
 		Assertions.assertEquals("Неплохо.", session.getAnswer("Как дела?"));
 	}
 	
