@@ -229,4 +229,19 @@ public class Session {
 		}
 		return result;
 	}
+
+	public void setGenericBase(String[] genBase) {
+		// TODO Добавить установку базы общих реплик
+		
+	}
+
+	public String[] getGenericBase() {
+		// TODO Добавить получение базы общих реплик
+		String[] genBase = new String[] {
+				"Ты вообще о чем?",
+				"И такое бывает...", 
+				"Ясно, понятно."
+		};
+		return genBase;
+	}
 }
