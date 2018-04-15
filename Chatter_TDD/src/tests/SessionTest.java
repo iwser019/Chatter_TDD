@@ -34,6 +34,7 @@ class SessionTest {
 				"Здовово",
 				"Здравствуй"
 		});
+		session.setTypicalMatchBase(typicalBase);
 		Boolean ok = false;
 		String[] answers = new String[] {
 				"Привет",
