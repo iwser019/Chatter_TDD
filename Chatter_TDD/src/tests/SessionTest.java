@@ -213,4 +213,19 @@ class SessionTest {
 		session.setExactMatchBase(matchBase);
 		Assertions.assertEquals(false, session.hasExactMatchSub(null));
 	}
+	
+	/**
+	 * Тесты для вспомогательной функции разделения на слова
+	 */
+	@Test
+	void SessionWordSplitTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, Arrays.equals(new String[] {
+				"Сколько",
+				"будет",
+				"два",
+				"плюс",
+				"два?"
+		}, session.splitWords("Сколько будет два плюс два?")));
+	}
 }
