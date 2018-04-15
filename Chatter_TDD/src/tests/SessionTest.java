@@ -146,6 +146,9 @@ class SessionTest {
 		Assertions.assertEquals(true, hasSameValues);
 	}
 	
+	/**
+	 * Тесты для вспомогательной функции для разбивки текста на предложения
+	 */
 	@Test
 	void SessionSentenceSplitTest() {
 		Session session = new Session();
@@ -166,5 +169,18 @@ class SessionTest {
 	void SessionSentenceSplitNullTest() {
 		Session session = new Session();
 		Assertions.assertEquals(true, Arrays.equals(new String[] {}, session.splitSentence(null)));
+	}
+	
+	/**
+	 * Тесты для поиска точных соответствий для подстрок исходного текста
+	 */
+	@Test
+	void SessionHasExactMatchSubTest() {
+		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
+		Assertions.assertEquals(true, session.hasExactMatchSub("Ты спишь? Только честно."));
 	}
 }
