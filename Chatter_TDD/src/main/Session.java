@@ -200,8 +200,10 @@ public class Session {
 
 	public Boolean hasKeywordMatch(String string) {
 		// TODO Добавить логику
+		if (string == null)
+			return false;
 		if (string.equals("Я этого не знаю."))
 			return true;
-		return null;
+		return false;
 	}
 }
