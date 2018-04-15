@@ -228,4 +228,18 @@ class SessionTest {
 				"два?"
 		}, session.splitWords("Сколько будет два плюс два?")));
 	}
+	
+	@Test
+	void SessionWordSplitSingleTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, Arrays.equals(new String[] {
+				"фывапролджэ"
+		}, session.splitWords("фывапролджэ")));
+	}
+	
+	@Test
+	void SessionWordSplitNullTest() {
+		Session session = new Session();
+		Assertions.assertEquals(true, Arrays.equals(new String[] {}, null));
+	}
 }
