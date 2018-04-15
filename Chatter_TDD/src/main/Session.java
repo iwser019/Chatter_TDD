@@ -139,4 +139,9 @@ public class Session {
 		resultArr = result.toArray(resultArr);
 		return resultArr;
 	}
+
+	public Boolean hasExactMatchSub(String string) {
+		// TODO Добавить логику поиска точных соответствий для слов подстроки
+		return null;
+	}
 }
