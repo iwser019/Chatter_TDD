@@ -180,4 +180,23 @@ public class Session {
 			return new String[] {};
 		return string.split(" ");
 	}
+
+	public void setKeywordBase(ArrayList<Pair<String[], String>> keywordBase) {
+		// TODO Добавить установку базы ключевых слов
+		
+	}
+
+	public ArrayList<Pair<String[], String>> getKeywordBase() {
+		// TODO Добавить получение базы ключевых слов
+		ArrayList<Pair<String[], String>> kwBase = new ArrayList<Pair<String[], String>>();
+		kwBase.add(
+				new Pair<>(
+						new String[] {
+								"блин,"
+								}, 
+						"Я тоже люблю блины."
+						)
+				);
+		return kwBase;
+	}
 }
