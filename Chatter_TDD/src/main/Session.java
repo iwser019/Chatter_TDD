@@ -197,13 +197,36 @@ public class Session {
 	public ArrayList<Pair<String[], String>> getKeywordBase() {
 		return keywordBase;
 	}
-
+	
+	/**
+	 * Проверка на соответствие на уровне ключевых слов
+	 * @param string Исходный текст
+	 * @return Результат проверки
+	 */
 	public Boolean hasKeywordMatch(String string) {
 		// TODO Добавить логику
 		if (string == null)
 			return false;
-		if (string.equals("Я этого не знаю."))
-			return true;
-		return false;
+		Boolean result = false;
+		String[] srcWords = splitWords(string.toLowerCase());
+		for (Pair<String[], String> pair : keywordBase) {
+			String[] keywords = pair.getX();
+			int size = keywords.length;
+			int counter = 0;
+			for (String keyword : keywords) {
+				Boolean ok = false;
+				for (String word : srcWords) {
+					if (word.equals(keyword))
+						ok = ok || true;
+				}
+				if (ok)
+					counter++;
+			}
+			if (counter == size) {
+				result = true;
+				break;
+			}
+		}
+		return result;
 	}
 }
