@@ -18,13 +18,13 @@ class PairTest {
 	@Test
 	void PairHasXValue() {
 		Pair<Integer, Integer> pair = new Pair<>(1, 2);
-		Assertions.assertEquals(1, pair.getX());
+		Assertions.assertEquals(1, (int)pair.getX());
 	}
 	
 	@Test
 	void PairHasYValue() {
 		Pair<Integer, Integer> pair = new Pair<>(1, 2);
-		Assertions.assertEquals(2, pair.getY());
+		Assertions.assertEquals(2, (int)pair.getY());
 	}
 
 }
