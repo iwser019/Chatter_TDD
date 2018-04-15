@@ -154,22 +154,14 @@ public class Session {
 		return false;
 	}
 
+	/**
+	 * Разбивка текста на слова
+	 * @param string Исходный текст
+	 * @return Массив слов
+	 */
 	public String[] splitWords(String string) {
-		// TODO Добавить логику разбивки на слова
 		if (string == null)
 			return new String[] {};
-		if (string.equals("Сколько будет два плюс два?"))
-			return new String[] {
-					"Сколько",
-					"будет",
-					"два",
-					"плюс",
-					"два?"
-			};
-		else if (string.equals("фывапролджэ"))
-			return new String[] {
-					"фывапролджэ"
-			};
-		return new String[] {};
+		return string.split(" ");
 	}
 }
