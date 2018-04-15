@@ -183,4 +183,34 @@ class SessionTest {
 		session.setExactMatchBase(matchBase);
 		Assertions.assertEquals(true, session.hasExactMatchSub("Ты спишь? Только честно."));
 	}
+	
+	@Test
+	void SessionHasInsufficentExactMatchSubTest() {
+		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
+		Assertions.assertEquals(false, session.hasExactMatchSub("Я думал, ты спал..."));
+	}
+	
+	@Test
+	void SessionHasNoExactMatchSubTest() {
+		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
+		Assertions.assertEquals(true, session.hasExactMatchSub("фывапролджэ"));
+	}
+	
+	@Test
+	void SessionNullExactMatchSubTest() {
+		Session session = new Session();
+		Map<String, String> matchBase = new HashMap<String, String>();
+		matchBase.put("Ты спишь?", "Нет");
+		matchBase.put("Сколько будет два плюс два?", "Четыре.");
+		session.setExactMatchBase(matchBase);
+		Assertions.assertEquals(true, session.hasExactMatchSub(null));
+	}
 }
