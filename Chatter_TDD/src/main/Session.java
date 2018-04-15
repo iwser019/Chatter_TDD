@@ -9,10 +9,13 @@ public class Session {
 	private Map<String, String> exactMatchBase;
 	private Map<String, String[]> typicalMatchBase;
 	private ArrayList<Pair<String[], String>> keywordBase;
+	private String[] genericBase;
 	
 	public Session() {
 		exactMatchBase = new HashMap<String, String>();
 		typicalMatchBase = new HashMap<String, String[]>();
+		keywordBase = new ArrayList<Pair<String[], String>>();
+		genericBase = new String[] {};
 	}
 
 	/**
@@ -230,18 +233,19 @@ public class Session {
 		return result;
 	}
 
+	/**
+	 * Установка базы общих ответов
+	 * @param genBase Набор общих ответов
+	 */
 	public void setGenericBase(String[] genBase) {
-		// TODO Добавить установку базы общих реплик
-		
+		genericBase = genBase;
 	}
 
+	/**
+	 * Получение базы общих ответов
+	 * @return Набор общих ответов
+	 */
 	public String[] getGenericBase() {
-		// TODO Добавить получение базы общих реплик
-		String[] genBase = new String[] {
-				"Ты вообще о чем?",
-				"И такое бывает...", 
-				"Ясно, понятно."
-		};
-		return genBase;
+		return genericBase;
 	}
 }
