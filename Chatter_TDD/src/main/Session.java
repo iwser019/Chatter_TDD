@@ -139,7 +139,12 @@ public class Session {
 		resultArr = result.toArray(resultArr);
 		return resultArr;
 	}
-
+	
+	/**
+	 * Поиск соответствия из обычных реплик на уровне значимых слов.
+	 * @param string Исходный текст
+	 * @return Результат проверки
+	 */
 	public Boolean hasExactMatchSub(String string) {
 		// TODO Добавить логику поиска точных соответствий для слов подстроки
 		if (string == null)
