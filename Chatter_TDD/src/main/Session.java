@@ -82,4 +82,9 @@ public class Session {
 	public Map<String, String[]> getTypicalMatchBase() {
 		return typicalMatchBase;
 	}
+
+	public String[] splitSentence(String string) {
+		// TODO Добавить логику разбивки на предложения
+		return null;
+	}
 }
